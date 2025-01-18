@@ -25,22 +25,22 @@ def query_deposit_address(account_info, coin, chain):
     # 获取存款地址
     response = bitget.get_address(coin, chain)
     data = response.get('data', {})
-    coin = data.get('coin', 'N/A')  # 默认值为 'N/A'，如果没有找到 'coin'
+    chain = data.get('chain', 'N/A')  # 默认值为 'N/A'，如果没有找到 'coin'
     address = data.get('address', 'N/A')  # 默认值为 'N/A'，如果没有找到 'address'
 
 
     # 打印账户信息和响应
-    print(f'用户信息: {account_name}; 用户UUID: {uuid}; 提币网络: {coin}; 提币地址： {address}')
+    print(f'用户信息: {account_name}; 用户UUID: {uuid}; 提币网络: {chain}; 提币地址： {address}')
 
 # 主程序
 def main():
     # 读取账户信息
     accounts = read_accounts_from_json('bitget_accounts.json')
 
-    # 填入币种
-    coin = "SOL" 
-    # 网络   
-    chain = "SOL" 
+    # 填入币种   
+    coin = "USDT" 
+    # 网络  SOL/ERC20/TON
+    chain = "ERC20" 
 
     # 循环查询每个账户
     for account_info in accounts:
