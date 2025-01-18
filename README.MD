@@ -36,3 +36,5 @@ python3.10
 ```
 python mian.py 
 ```
+
+
